@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <script src="angular.min.js"></script>
+        <script>
+            var app=angular.module("demoapp",[]);
+            app.controller("democtrl",function($scope){
+                
+                $scope.event=function(s){
+                    alert($scope.bolded.val)
+                }
+            })
+        </script>
+    </head>
+    <body ng-app="demoapp">
+        <div ng-controller="democtrl">
+            <form>
+                <input type="text" ng-model="inputtxt">
+                <button ng-click="save()"></button>
+            </form>
+            
+            <i>{{inputtxt}}</i>
+            
+            <b id="bolded" ng-click="event()">Bold</b>
+        </div>
+    </body>
+</html>

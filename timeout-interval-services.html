@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Location services-</title>
+        
+            <script src="angular.min.js"></script>
+            <script>
+                var app= angular.module("demoapp",[]);
+                app.controller("democtrl",function($scope,$location,$timeout,$interval){
+                    $timeout(function(){
+                        $scope.alert="timeout alert";
+                    },1000);
+                    $scope.c=10;
+                    $interval(function(){
+                        if($scope.c!=0){$scope.c--;}
+                        if($scope.c==0){
+                            $timeout(function(){
+                                $scope.msg="Time Out";
+                            },50)
+                        }
+                    },1000)
+                })
+            </script>
+            
+    </head>
+    <body ng-app="demoapp" ng-controller="democtrl">
+        <h1>Timeout Services-</h1>
+        <h2>{{alert}}</h2>
+        <hr>
+        <h1>Count : {{c}}</h1>
+        <div style="font-size: 100px; font-weight: bold; text-align: center;">{{msg}}</div>
+    </body>
+</html>

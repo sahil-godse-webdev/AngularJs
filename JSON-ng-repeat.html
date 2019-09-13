@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Angualar JSON with ng-repeat</title>
+        
+        <script src="angular.min.js"></script>
+        <script>
+            var app= angular.module("demoapp",[]);
+            app.controller("democtrl",function($scope){
+                $scope.employees= [{"name":"Sahil"},{"surname":"Godse"}];
+                
+                
+            })
+        </script>
+    
+    </head>
+    <body ng-app="demoapp">
+        <div ng-controller="democtrl">
+            <ul>
+                <li ng-repeat="emp in employees">{{emp.name}} {{emp.surname}}</li>
+            </ul>
+        </div>
+    </body>
+</html>

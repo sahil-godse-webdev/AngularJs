@@ -1,0 +1,26 @@
+//digest or apply to commit changes to scope and view automatically<br><br>
+
+<script src="angular.min.js"></script>
+<script src="jquery.js"></script>
+<script>
+    var app=angular.module("demoapp",[]);
+
+    app.controller("democtrl",function($scope){
+        $scope.ccount=0;
+        $scope.ngl= function(){
+            $scope.ccount++;
+            $scope.$digest();
+        }
+
+        $("#jq").click(function(){
+            $scope.ccount++;
+            $scope.$digest();
+        })
+    })
+</script>
+
+<body ng-app="demoapp" ng-controller="democtrl">
+    <button id="jq">jquery</button>
+    <button ng-click="ngl()">angular</button>
+    {{ccount}}
+</body>

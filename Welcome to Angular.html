@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>>Welcome To Angular</title>
+        
+        <!-- Bootstrap core CSS -->
+          <link href="css/bootstrap.min.css" rel="stylesheet">
+          <!-- Material Design Bootstrap -->
+          <link href="css/mdb.min.css" rel="stylesheet">
+          <!-- Your custom styles (optional) -->
+          <link href="css/style.css" rel="stylesheet">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+        <script>
+            var app= angular.module("demoapp",[]);
+            app.controller("democtrl",function($scope){
+                            $scope.name="Angular";    
+                        })
+            app.controller("imgctrl",function($scope){
+                $scope.source="https://angular.io/assets/images/logos/angular/angular.svg";
+                $scope.width="70%";
+                $scope.height="70%";
+                $scope.openimg=function(){
+                    window.open("https://angular.io/assets/images/logos/angular/angular.svg","_top");
+                }
+            })
+        </script>
+        <style>
+            h1{
+                color: rgb(52,101,153);
+                text-align: center;
+                font-family: sans-serif;
+            }
+        </style>
+    </head>
+    <body ng-app="demoapp">
+        
+        <h1 ng-controller="democtrl">Welcome to My First {{name}} App!</h1>
+        
+        <div ng-controller="imgctrl" class="d-flex h-100 justify-content-center">
+            <img ng-click="openimg()" src="{{source}}" width="{{width}}" height="{{height}}"/>
+        </div>
+    </body>
+</html>

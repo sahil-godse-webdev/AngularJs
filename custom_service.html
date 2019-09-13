@@ -1,0 +1,28 @@
+<script src="angular.min.js"></script>
+<script>
+    var app=angular.module("demoapp",[]);
+    
+    app.controller("democtrl",function($scope,custom_service){
+        //$scope.sqr= $scope.num1;
+        $scope.$watch("num1",function(newval,oldval){
+            $scope.newval= newval;
+            $scope.oldval= oldval;
+            var value=$scope.newval;
+            $scope.sqr= custom_service.squareit(value);
+        })
+    })
+
+    
+    app.service("custom_service",function(){
+            this.squareit = function(num){
+                return(num*num);
+            }
+    })
+</script>
+
+<body ng-app="demoapp" ng-controller="democtrl">
+    <h1>Square of <input type="number" ng-model="num1"> is </h1>{{sqr}}
+
+    <h3>{{newval}}</h3>
+    <h3>{{oldval}}</h3>
+</body>

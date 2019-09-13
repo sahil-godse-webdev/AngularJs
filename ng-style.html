@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>ng-style in AngularJS</title>
+        <script src="angular.min.js"></script>
+        <script>
+            var app= angular.module('demoapp',[]);
+            app.controller('stylectrl',function($scope){
+                $scope.CustomStyle= {};
+                $scope.changebg= function(color){
+                    $scope.CustomStyle= {'background': color};
+                }
+            })
+        </script>
+        <style>
+            .button{
+                font-size: 25px;
+                padding: 5px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    
+    <body ng-app="demoapp">
+        <div ng-controller="stylectrl">
+            <div ng-style='CustomStyle' style="width: 200px; height: 200px; background: orange; font-size: 25px; text-align: center; font-weight: bold; float: left;">Change Color</div>
+            
+            <div style="float: left;">
+                <button ng-click="changebg('red')" class="button" value="red">Red</button><br>
+                <button ng-click="changebg('green')" class="button" value="green">Green</button><br>
+                <button ng-click="changebg('blue')" class="button" value="blue">Blue</button><br>
+            </div>
+                
+            
+        </div>
+    </body>
+</html>

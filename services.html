@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Location services-</title>
+            <script src="angular.min.js"></script>
+            <script>
+                var app= angular.module("demoapp",[]);
+                app.controller("democtrl",function($scope,$location){
+                    $scope.url=$location.absUrl();
+                    $scope.protocol=$location.protocol();
+                    $scope.host= $location.host();
+                    $scope.port= $location.port();
+                })
+            </script>
+        </head>
+        <body ng-app="demoapp" ng-controller="democtrl">
+            <h1>Services in AngularJs</h1>
+            <h2>Location Services-</h2>
+            <p>
+                URL : {{url}}<br>
+                Protocol: {{protocol}}<br>
+                host name : {{host}}<br>
+                port no : {{port}}<br>
+            </p>
+        </body>
+</html>
